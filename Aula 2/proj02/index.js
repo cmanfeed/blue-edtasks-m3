@@ -11,8 +11,20 @@ const games = [
     'Mortal Combat'
 ]
 
+function randomMinMax(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function game(num) {
+    return games[num];
+}
+
 app.get('/', (req, res) => {
-    res.send('Olá Mundo!');
+    res.send('You are in the root!');
+});
+
+app.get('/randomgame', (req, res) => {
+    res.send(`<h1>${game(randomMinMax(0, games.length))}</h1>`);
 });
 
 app.get('/games', (req, res) => {
