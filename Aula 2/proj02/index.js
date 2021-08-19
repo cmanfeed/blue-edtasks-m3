@@ -33,8 +33,12 @@ app.get('/games', (req, res) => {
 
 app.get('/games/:id', (req, res) => {
     const id = req.params.id;
-    const game = games[id];
-    res.send(game);
+    if (id > games.length || id < 0) {
+        res.send('Id não existente')
+    } else {
+        const game = games[id];
+        res.send(game);
+    }
 });
 
 
