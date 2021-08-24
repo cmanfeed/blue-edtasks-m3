@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import Text from './components/Text/Text';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      seconds: 0
+    };
+  };
 
-export default App;
+  contador() {
+    this.setState(state => ({
+      seconds: this.seconds + 1
+    }));
+  };
+
+  componentDidMount() {
+    this.interval = setInterval(() => {
+      this.contador()
+    }, 1000);
+  };
+
+  render() {
+    return (
+      <>
+        <Text text="Bem vindo a Marco!" />
+        <Text text="Bem vindo a Thiago!" />
+        <Text text="Bem vindo a Pedro!" />
+        <Text text="Bem vindo a Fábio!" />
+        <Text text="Bem vindo a André!" />
+      </>
+    )
+  };
+};
