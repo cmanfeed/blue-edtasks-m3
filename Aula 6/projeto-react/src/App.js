@@ -25,6 +25,7 @@ export default class App extends Component {
   render() {
     return (
       <>
+        <p>{this.state.seconds}</p>
         <Text text="Bem vindo a Marco!" />
         <Text text="Bem vindo a Thiago!" />
         <Text text="Bem vindo a Pedro!" />
