@@ -1,3 +1,19 @@
-.container{
-    display: flex;
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 240px;
+  height: 500px;
+  margin: 1em 0.5em 1em 0.5em;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.form {
+  margin: 4em 0 2em 0;
 }
