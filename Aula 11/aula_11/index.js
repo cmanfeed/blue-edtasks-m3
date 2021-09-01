@@ -1,11 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const usuario = require("./models/usuario");
-
-mongoose.connect("mongodb://localhost:27017/usuario", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const Conn = require("./conn/conn");
 
 // const usuario1 = new usuario({
 //   nome: "Ivonaldo",
