@@ -76,6 +76,7 @@ export function Card(props) {
             <h5 className="card-title">{props.name}</h5>
             <p className="card-text">{props.description}</p>
             <Button id={props.id} />
+            {props.children}
           </div>
         </div>
       </div>
@@ -155,7 +156,7 @@ export default function App() {
     setMovies([
       ...movies,
       {
-        id: movies.length,
+        id: movies.length + 1,
         name: nameMovie,
         description: "Apenas um teste",
         imagemUrl: imgeMovie,
@@ -165,6 +166,10 @@ export default function App() {
 
     setNameMovie("");
     setImgeMovie("");
+  }
+
+  function handleMovieDelete(i) {
+    setMovies(movies.filter((m, m_i) => i !== m_i));
   }
 
   return (
@@ -214,7 +219,7 @@ export default function App() {
         </form>
       </div>
       <div className="cards-container">
-        {movies.map((m) => (
+        {movies.map((m, i) => (
           <>
             <Card
               name={m.name}
@@ -222,7 +227,12 @@ export default function App() {
               trailerUrl={m.trailerUrl}
               description={m.description}
               id={m.id}
-            />
+            >
+              <button
+                className="btn btn-danger"
+                onClick={() => handleMovieDelete(i)}
+              > Excluir </button>
+            </Card>
           </>
         ))}
       </div>
